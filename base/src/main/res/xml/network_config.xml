@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!--Android P 限制了非加密的流量请求导致出现 not permitted by network security policy-->
+    <base-config cleartextTrafficPermitted="true" />
+</network-security-config>

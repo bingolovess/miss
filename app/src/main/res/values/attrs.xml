@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--自定义头部视图-->
+    <declare-styleable name="CommonHeader">
+        <attr name="empty" format="boolean" />
+        <attr name="hide" format="boolean" />
+        <attr name="color" format="color" />
+    </declare-styleable>
+    <!--仿微信底部tab-->
+    <declare-styleable name="TabView">
+        <attr name="tabColor" format="color|integer" />
+        <attr name="tabImage" format="reference" />
+        <attr name="tabSelectedImage" format="reference" />
+        <attr name="tabTitle" format="string|reference" />
+    </declare-styleable>
+    <!--滚动的通知组件-->
+    <declare-styleable name="NoticeView">
+        <attr name="nvIcon" format="reference"/><!-- 图标 -->
+        <attr name="nvIconPadding" format="dimension"/><!-- 图标与内容的间隙 -->
+        <attr name="nvIconTint" format="color"/><!-- 图标颜色 -->
+        <attr name="nvTextSize" format="dimension"/><!-- 文本尺寸 -->
+        <attr name="nvTextColor" format="color"/><!-- 文本颜色 -->
+        <attr name="nvTextMaxLines" format="integer"/><!-- 文本最大行数 -->
+        <attr name="nvTextGravity" format="integer"> <!-- 文本对齐方式 -->
+            <enum name="left" value="3"/>
+            <enum name="center" value="17"/>
+            <enum name="right" value="5"/>
+        </attr>
+        <attr name="nvInterval" format="integer"/><!-- 切换动画间隔时间，毫秒 -->
+        <attr name="nvDuration" format="integer"/><!-- 切换动画持续时间，毫秒 -->
+    </declare-styleable>
+    <!--ExpandableTextView-->
+    <declare-styleable name="ExpandableTextView">
+        <attr name="maxCollapsedLines" format="integer"/>
+        <attr name="animDuration" format="integer"/>
+        <attr name="contentTextSize" format="dimension"/>
+        <attr name="contentTextColor" format="color"/>
+        <attr name="contentLineSpacingMultiplier" format="float"/>
+        <attr name="expandDrawable" format="reference"/>
+        <attr name="expandText" format="string"/>
+        <attr name="collapseDrawable" format="reference"/>
+        <attr name="collapseText" format="string"/>
+        <attr name="expandCollapseTextColor" format="color"/>
+        <attr name="DrawableAndTextGravity">
+            <enum name="left" value="0"/>
+            <enum name="center" value="1"/>
+            <enum name="right" value="2"/>
+        </attr>
+    </declare-styleable>
+    <!--TagsView-->
+    <declare-styleable name="TagsView">
+        <attr name="allowSpaceInTag" format="boolean"/>
+        <attr name="tagsTextColor" format="color"/>
+        <attr name="tagsTextSize" format="dimension"/>
+        <attr name="tagsBackground" format="integer"/>
+        <attr name="tagsCloseImageLeft" format="integer"/>
+        <attr name="tagsCloseImageRight" format="integer"/>
+        <attr name="tagsCloseImagePadding" format="dimension" />
+        <attr name="tagsPaddingLeft" format="dimension"/>
+        <attr name="tagsPaddingRight" format="dimension"/>
+        <attr name="tagsPaddingTop" format="dimension"/>
+        <attr name="tagsPaddingBottom" format="dimension"/>
+    </declare-styleable>
+    <!--流式布局-->
+    <declare-styleable name="FlowLayout">
+        <attr name="wlyHorizontalSpacing" format="dimension" />
+        <attr name="wlyVerticalSpacing" format="dimension" />
+        <attr name="wlyGravity" format="enum">
+            <enum name="top" value="0" />
+            <enum name="center" value="1" />
+            <enum name="bottom" value="2" />
+        </attr>
+    </declare-styleable>
+    <!--分段视图-->
+    <declare-styleable name="SegmentedControlView">
+        <attr name="segRadius" format="dimension|reference"/>
+        <attr name="segOuterColor" format="color"/>
+        <attr name="segItemColor" format="color"/>
+        <attr name="segTextColor" format="color"/>
+        <attr name="segSelectedTextColor" format="color"/>
+        <attr name="segMarginLeft" format="dimension|reference"/>
+        <attr name="segMarginTop" format="dimension|reference"/>
+        <attr name="segSelectedItem" format="integer"/>
+        <attr name="segTextSize" format="reference"/>
+        <attr name="segScrollEnable" format="boolean"/>
+        <attr name="segMode">
+            <enum name="Round" value="0"/>
+            <enum name="Circle" value="1"/>
+        </attr>
+    </declare-styleable>
+    <!--时间轴-->
+    <declare-styleable name="TimeLineView">
+        <attr name="startedLineColor" format="color"/>
+        <attr name="preLineColor" format="color"/><!--当前step右边直线的颜色-->
+        <attr name="startedCircleColor" format="color"/>
+        <attr name="underwayCircleColor" format="color"/><!--当前step左边的圆圈的颜色-->
+        <attr name="preCircleColor" format="color"/> <!--当前step右边圆圈的颜色-->
+        <attr name="startedStringColor" format="color"/><!--当前step左边的直线的颜色-->
+        <attr name="underwayStringColor" format="color"/> <!--当前step左边的文字的颜色-->
+        <attr name="preStringColor" format="color"/><!--当前step右边文字的颜色-->
+        <attr name="textSize" format="dimension"/>
+        <attr name="tlradius" format="dimension"/>
+        <attr name="lineWidth" format="dimension"/>
+    </declare-styleable>
+    <!--发光按钮-->
+    <declare-styleable name="GlowButton">
+        <attr name="buttonColor" format="color" />
+        <attr name="glowColor" format="color" />
+        <attr name="unpressedGlowSize" format="dimension" />
+        <attr name="pressedGlowSize" format="dimension" />
+        <attr name="cornerRadius" format="dimension" />
+    </declare-styleable>
+    <!--文本对齐的TextView-->
+    <declare-styleable name="AlignTextView">
+        <attr name="alignOnlyOneLine" format="boolean"/>
+    </declare-styleable>
+</resources>

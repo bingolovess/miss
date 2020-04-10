@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".ui.FormInputActivity">
+    <com.miss.view.CommonHeader
+        android:id="@+id/common_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <com.ww.emptystate.EmptyState
+        android:id="@+id/emptyState"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:emps_iconSize="SMALL"
+        app:emps_buttonCorner="5dp"/>
+    <!--<com.ww.emptystate.EmptyState
+        android:id="@+id/emptyState"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        app:emps_iconSize="SMALL"
+        app:emps_icon="@drawable/ic_empty"
+        app:emps_title="@string/noInternet_title"
+        app:emps_titleFontPath="fonts/Montserrat_Bold.ttf"
+        app:emps_descriptionFontPath="fonts/Montserrat_Regular.ttf"
+        app:emps_description="Please check your internet connection"
+        app:emps_showButton="true"
+        app:emps_buttonFontPath="fonts/Montserrat_Bold.ttf"
+        app:emps_buttonText="Enable WiFi"
+        app:emps_buttonCorner="5dp"/>-->
+</LinearLayout>

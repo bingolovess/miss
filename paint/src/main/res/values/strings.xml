@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Brushes</string>
+    <string name="about_title">About Brushes</string>
+    <string name="qr_title">QR Code for Brushes</string>
+    <string name="about_text"></string>
+</resources>

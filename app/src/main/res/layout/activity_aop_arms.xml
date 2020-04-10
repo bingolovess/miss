@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.AopArmsActivity">
+    <com.miss.view.CommonHeader
+        android:id="@+id/common_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/getUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="getUserList"
+                android:text="获取用户列表" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="getUser"
+                android:text="获取用户" />
+            <Button
+                android:id="@+id/removeUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="removeUser"
+                android:text="移除用户" />
+
+            <Button
+                android:id="@+id/permission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="permission"
+                android:text="请求权限" />
+
+            <Button
+                android:id="@+id/retry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="retry"
+                android:text="重试" />
+
+            <Button
+                android:id="@+id/safe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="safe"
+                android:text="铺获异常" />
+
+            <Button
+                android:id="@+id/asyn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="asyn"
+                android:text="异步" />
+
+            <Button
+                android:id="@+id/scheduled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/permission"
+                android:onClick="scheduled"
+                android:text="定时任务" />
+
+            <Button
+                android:id="@+id/delay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="delay"
+                android:text="延迟任务" />
+
+            <Button
+                android:id="@+id/cancelDelay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="cancelDelay"
+                android:text="取消延迟" />
+
+            <Button
+                android:id="@+id/intercept"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="intercept"
+                android:text="拦截" />
+
+            <Button
+                android:id="@+id/login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="login"
+                android:text="登录" />
+
+            <Button
+                android:id="@+id/logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="logout"
+                android:text="登出" />
+
+            <Button
+                android:id="@+id/singleClick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="防抖" />
+
+            <Button
+                android:id="@+id/singleClick1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="不防抖" />
+
+            <Button
+                android:id="@+id/singleClick2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="防抖2" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

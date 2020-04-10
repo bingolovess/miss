@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3bb2b8</color><!--#008577-->
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorGray">#55888888</color>
+
+    <color name="defaultTagsTextColor">#FFFFFF</color>
+    <dimen name="defaultTagsTextSize">16sp</dimen>
+    <dimen name="defaultTagsCloseImagePadding">10dp</dimen>
+    <dimen name="defaultTagsPadding">0dp</dimen>
+    <color name="split">#eeeeee</color>
+
+    <color name="default_glow_background_color">#8800FF</color>
+    <color name="default_glow_color">#885BFC</color>
+</resources>

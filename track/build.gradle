@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+/**
+ * 百度的鹰眼 用于定位 轨迹回放等
+ */
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation rootProject.ext.dependencies.appcompat_x
+    implementation rootProject.ext.dependencies.constraintlayout_x
+    implementation files('libs/bos-android-sdk-1.0.2.jar')
+    implementation files('libs/BaiduLBS_Android.jar')
+    implementation files('libs/BaiduTraceSDK_v3_0_4.jar')
+}

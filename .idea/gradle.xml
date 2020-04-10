@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/aop-arms" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/base" />
+            <option value="$PROJECT_DIR$/dialog" />
+            <option value="$PROJECT_DIR$/domob" />
+            <option value="$PROJECT_DIR$/emptystate" />
+            <option value="$PROJECT_DIR$/form" />
+            <option value="$PROJECT_DIR$/launch" />
+            <option value="$PROJECT_DIR$/notchlib" />
+            <option value="$PROJECT_DIR$/paint" />
+            <option value="$PROJECT_DIR$/picker" />
+            <option value="$PROJECT_DIR$/progress" />
+            <option value="$PROJECT_DIR$/promise" />
+            <option value="$PROJECT_DIR$/refresh" />
+            <option value="$PROJECT_DIR$/retrofit" />
+            <option value="$PROJECT_DIR$/tooltips" />
+            <option value="$PROJECT_DIR$/track" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:brushes="http://schemas.android.com/apk/res-auto"
+        style="@style/ActionBar.Bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical"
+        android:id="@+id/colors"
+        android:paddingRight="@dimen/tool_palette_gutter"
+        >
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                >
+            
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FF000000"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+               
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FFFFFFFF"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+               
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#00000000"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+        </LinearLayout>    
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                >
+            
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FF404040"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+               
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FF808080"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+               
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FFC0C0C0"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+        </LinearLayout>
+
+        <!-- red, green, blue -->    
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                >
+            
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FF800000"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+               
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FFFF0000"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+               
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FFFF8080"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                >
+            
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FF008000"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+               
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FF00FF00"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+               
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FF80FF80"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                >
+            
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FF000080"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+               
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FF0000FF"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+               
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FF8080FF"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+        </LinearLayout>
+
+        <!-- yellow, orange, purple -->
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                >
+            
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FF808000"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+               
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FFFFFF00"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+               
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FFFFFF80"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                >
+            
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FF804000"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+               
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FFFF8000"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+               
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FFFFCC80"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                >
+            
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FF800040"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+               
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FFFF0080"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+               
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FFFF80CC"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                >
+            
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FF400080"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+               
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FF8000FF"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+               
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FFCC80FF"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                >
+            
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FF402000"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+               
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FF804000"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+               
+            <view
+                class="com.miss.paint.ToolButton$SwatchButton"
+                brushes:color="#FFCCAA80"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="3dp"
+                />
+        </LinearLayout>
+</LinearLayout>

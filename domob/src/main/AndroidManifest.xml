@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.miss.domob">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <application>
+        <!-- 多盟视频广告页 -->
+        <activity android:name=".DomobMainActivity" /> <!-- 多盟广告页 -->
+        <activity android:name=".UnionSplashADActivity"/>
+
+        <!-- 以下是多盟广告轻推送 dpush -->
+        <!-- 必须添加 receiver -->
+        <receiver android:name="com.domob.sdk.DPushMessageReceiver" /> <!-- 非必须添加, 1.2.1版本之后(包括1.2.1)可以不用添加此插件 -->
+        <service android:name="com.domob.sdk.service.DPushService" /> <!-- 必须添加 receiver -->
+        <receiver android:name="com.domob.sdk.DPushNotificationReceiver" /> <!-- 必须添加 activity -->
+        <activity
+            android:name="com.domob.sdk.activity.DPushActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"></activity>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.miss.base">
+    <application>
+        <!--针对刘海屏适配 方案一-->
+        <!--<meta-data android:name="android.notch_support" android:value="true"/>-->
+        <!-- 全局Context提供者 -->
+        <provider
+            android:name=".app.ApplicationContextProvider"
+            android:authorities="${applicationId}.contextprovider"
+            android:exported="false" />
+    </application>
+</manifest>

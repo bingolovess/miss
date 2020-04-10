@@ -1,0 +1,67 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation rootProject.ext.dependencies.appcompat_x
+}
+/**
+ 示例
+     TaskDispatcher.init(this);
+     TaskDispatcher dispatcher = TaskDispatcher.createInstance();
+     dispatcher .addTask(new InitLeakCanary())
+                 .addTask(new InitUmengTask())
+                 .addTask(new InitBuglyTask())
+                 .addTask(new InitHookAMS())
+                 .start();
+     dispatcher.await();
+     initStrictMode();
+
+ public class InitLeakCanary extends Task {
+    @Override
+     public void run() {
+     //内存泄漏检测
+     if (LeakCanary.isInAnalyzerProcess(mContext)) {
+     // This process is dedicated to LeakCanary for heap analysis.
+     // You should not init your app in this process.
+     return;
+     }
+     LeakCanary.install( (Application)mContext);
+     }
+ }
+
+ private void initStrictMode() {
+     if (DEV_MODE) {
+         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+         .detectCustomSlowCalls() //API等级11，使用StrictMode.noteSlowCode
+         .detectDiskReads()
+         .detectDiskWrites()
+         .detectNetwork()// or .detectAll() for all detectable problems
+         .penaltyLog() //在Logcat 中打印违规异常信息
+         .build());
+         StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
+         .detectLeakedSqlLiteObjects()
+         //.setClassInstanceLimit(NewsItem.class, 1)
+         .detectLeakedClosableObjects() //API等级11
+         .penaltyLog()
+         .build());
+     }
+ }
+
+ */

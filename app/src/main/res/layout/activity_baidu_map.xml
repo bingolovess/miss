@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+   <fragment
+       android:id="@+id/fragment_map"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:name="com.map.track.BaiduMapFragment"/>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center_horizontal|bottom"
+       android:layout_marginBottom="100dp">
+      <SeekBar
+          android:id="@+id/seekBar"
+          android:layout_margin="10dp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:max="100"
+          android:progress="0" />
+   </LinearLayout>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center_horizontal|bottom">
+      <Button
+          android:layout_width="wrap_content"
+          android:layout_weight="1"
+          android:layout_height="wrap_content"
+          android:onClick="speedType1"
+          android:text="一倍速"/>
+      <Button
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:onClick="speedType2"
+          android:text="二倍速"/>
+      <Button
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:onClick="speedType4"
+          android:text="四倍速"/>
+   </LinearLayout>
+</FrameLayout>

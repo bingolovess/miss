@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:gravity="center_vertical"
+    android:id="@+id/dpush_notice_view_type">
+
+    <ImageView
+        android:id="@+id/dpush_icon"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginLeft="8dp"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center_vertical"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="8dp"
+        android:layout_gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/dpush_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:textAppearance="@android:style/TextAppearance.StatusBar.EventContent"
+            android:singleLine="true"/>
+
+        <TextView
+            android:id="@+id/dpush_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:textAppearance="@android:style/TextAppearance.StatusBar.EventContent"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="8dp"
+            android:singleLine="true"/>
+
+    </LinearLayout>
+
+</LinearLayout>

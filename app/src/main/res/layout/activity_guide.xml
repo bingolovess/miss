@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.GuideActivity">
+
+    <com.miss.view.CommonVideoView
+        android:id="@+id/video_view"
+        android:background="@mipmap/splash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:onClick="navMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="88dp"
+        android:gravity="center"
+        android:background="@drawable/shape_common_guide"
+        android:text="进入App"/>
+</FrameLayout>

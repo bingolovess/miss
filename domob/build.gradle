@@ -1,0 +1,40 @@
+apply plugin: 'com.android.library'
+/**
+ * 多盟广告 聚合版
+ * 接入轻推送 （不用可去掉）
+ */
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+/**
+ * 依赖项目（包括module）中的aar库  repositories跟android 同一级别
+ */
+//repositories{
+//    flatDir{
+//        dirs 'libs'
+//    }
+//}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation rootProject.ext.dependencies.appcompat_x
+    implementation rootProject.ext.dependencies.constraintlayout_x
+    //多盟SDK必须的依赖包
+    implementation(name: 'domob-unionads-1.0.0', ext: 'aar')
+    //至少需要嵌入一家广告平台的依赖包
+    implementation(name: 'domob-ads-2.1.1', ext: 'aar')
+    //多盟广告SDK 轻推送
+    api files('libs/dpush-android-1.2.1.jar')
+}

@@ -1,0 +1,24 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.miss.paint">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <supports-screens android:anyDensity="true" />
+    <!-- Support any Android device with a pointer -->
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+
+    <application android:hardwareAccelerated="true">
+        <activity android:name=".BrushesActivity"
+            android:label="@string/app_name"
+            android:configChanges="orientation|screenSize">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+            <intent-filter>
+                <action android:name="android.intent.action.EDIT" />
+                <action android:name="android.intent.action.SEND" />
+                <data android:mimeType="image/*" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

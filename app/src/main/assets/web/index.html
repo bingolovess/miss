@@ -1,0 +1,241 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>lottie实现</title>
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" /> -->
+	 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	
+	<!-- 定制版 ionic 样式 -->
+	<link rel="stylesheet" href="https://unpkg.com/vonic@2.0.0-beta.11/dist/vonic.min.css">
+	<link rel="stylesheet" href="./css/swiper.min.css">
+	<link rel="stylesheet" href="./css/index.css"/>
+</head>
+<body>
+	<div id="app" v-cloak>
+		<div class="page" v-tabbar="{'menus': menus, menuColor: '#999', activeMenuColor: '#FF4400', onMenuClick: menuClicked}">
+		      <div class="page-content" v-if="show == 0">
+		      	<button class="button button-assertive" @click="executeAndroid">调用Android</button>
+		      	<button class="button button-assertive" @click="clickPrompt">clickPrompt</button>
+		      	<button class="button button-assertive" @click="callJS">callJS</button>
+		      	<button class="button button-assertive" @click="showDialog">dialog</button>
+		      	<button class="button button-assertive" @click="showActionSheet">actionSheet</button>
+		      	<button class="button button-assertive" @click="loading('正在加载..')">loading</button>
+		      </div>
+		      <div class="page-content" v-if="show == 1">
+		      	<div class="page">
+		      	    <scroller class="page-content"
+		      	            :on-refresh="onRefresh"
+		      	            :on-infinite="onInfinite"
+		      	            ref="scroller">
+		      	      <div v-for="(item, index) in items" @click="onItemClick(index)"
+		      	           class="item item-borderless" :class="{'item-stable': index % 2 == 0}">
+		      	        {{ item }}
+		      	      </div>
+		      	    </scroller>
+		      	  </div>
+		      </div>
+		      <div class="page-content" v-if="show == 2">
+		          <button class="button button-assertive" @click="updateBadge(2)">update badge</button>
+		      </div>
+		      <div class="content" v-if="show == 3">
+		      	<div class="swiper-container">
+		      	    <div class="swiper-wrapper">
+		      	        <div class="swiper-slide">Slide 1</div>
+		      	        <div class="swiper-slide">Slide 2</div>
+		      	        <div class="swiper-slide">Slide 3</div>
+		      	        <div class="swiper-slide">Slide 4</div>
+		      	        <div class="swiper-slide">Slide 5</div>
+		      	        <div class="swiper-slide">Slide 6</div>
+		      	        <div class="swiper-slide">Slide 7</div>
+		      	        <div class="swiper-slide">Slide 8</div>
+		      	        <div class="swiper-slide">Slide 9</div>
+		      	        <div class="swiper-slide">Slide 10</div>
+		      	    </div>
+		      	    <!-- Add Pagination -->
+		      	    <div class="swiper-pagination"></div>
+		      	</div>
+		      	<!-- 导航等组件可以放在container之外 -->
+		      	<button class="button button-assertive">哈哈</button>
+		      </div>
+		 </div>
+	</div>
+	<script src="./js/mobileFix.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./js/vconsole.min.js"></script>
+	<!-- 依赖库 axios/vue/vue-router -->
+	<script src="https://unpkg.com/axios@0.15.3/dist/axios.min.js"></script>
+	<script src="https://unpkg.com/vue@2.1.10/dist/vue.min.js"></script>
+	<!-- <script src="./js/vue.min.js"></script> -->
+	<script src="https://unpkg.com/vue-router@2.2.1/dist/vue-router.min.js"></script>
+	<!-- vonic 核心文件 -->
+	<script src="https://unpkg.com/vonic@2.0.0-beta.11/dist/vonic.min.js"></script>
+	<script src="./js/android.js"></script>
+	<script src="./js/swiper.min.js"></script>
+	<script type="text/javascript">
+		"use strict";
+		//swiper
+		window.onload = function(){
+			//设置移动端调试控制台
+			var vConsole = new VConsole();
+			Vue.use(Vonic.app, {})
+			var swiper = new Swiper('.swiper-container', {
+			    pagination: '.swiper-pagination',
+			    paginationClickable: true,
+			    paginationBulletRender: function (swiper, index, className) {
+			        return '<span class="' + className + '">' + (index + 1) + '</span>';
+			    },
+				spaceBetween: 30,
+				centeredSlides: true,
+				autoplay: 2500,
+				autoplayDisableOnInteraction: false
+			});
+			var app = new Vue({
+			      el: '#app',
+			      data:{
+					title:"",
+					android:null,
+					menus: [
+					         {
+					           iconOn: 'ion-ios-home',
+					           iconOff: 'ion-ios-home',
+					           text: '首页',
+					         },
+					         {
+					           iconOn: 'ion-ios-pricetags',
+					           iconOff: 'ion-ios-pricetags',
+					           text: '折扣',
+					         },
+					         {
+					           iconOn: 'ion-ios-cart',
+					           iconOff: 'ion-ios-cart',
+					           text: '购物车',
+					           badge: 5
+					         },
+					         {
+					           iconOn: 'ion-ios-person',
+					           iconOff: 'ion-ios-person',
+					           text: '我的',
+					         }
+						],
+					show: 0,
+					AndroidJsBridge:null,
+					//折扣
+					items: [],
+					menuButtonText:'<span class="assertive">更多</span>',
+					//购物车中
+					//我的页面
+					
+			      },
+				  mounted: function () {
+					 this.AndroidJsBridge = new AndroidJsBridge();
+					 //这种可以将vue内部方法公开到window中
+					 window.callJS = this.callJS;
+					 //刷新组件内部
+					 for (let i = 1; i <= 20; i++) {
+					    this.items.push(i + ' - keep walking, be 2 with you.')
+					 }
+					 this.top = 1
+					 this.bottom = 20
+					 setTimeout(() => {
+					    if (this.$refs.scroller){
+							this.$refs.scroller.resize()
+						}
+					})
+				  },
+				  methods: {
+					loading(tips) {
+					    $loading.show(tips)
+					    setTimeout(() => {
+					        $loading.hide()
+					    }, 2000)
+					},
+					showDialog(){
+						$dialog.confirm({
+						    theme: 'ios',
+						    title: '在"微信"中打开链接吗?',
+						    cancelText: '取消',
+						    okText: '打开'
+						    })
+							.then((res) => {
+						       console.log('confirm result: ', res)
+							})
+					 },
+					 showActionSheet(theme) {
+					    $actionSheet.show({
+					        theme: theme || '',//android/weixin  默认ios
+					        title: '标题',
+					        buttons: {
+								'Action - 1': () => {
+									console.log('action 1 called.')
+								},
+								'Action - 2': () => {
+									console.log('action 2 called.')
+								}
+							}
+					    })
+					 },
+				     executeAndroid() {
+						var android = window.Android;
+						console.log(android);
+						console.log(android);
+						if(android){
+						   android.show("JS 调用了 Android");				  
+						} else{
+							alert("123")
+						}
+				     },
+					callJS(){
+						//webView.loadUrl('javascript:callJS()')
+					    //alert("Android调用了JS的callJS方法 实现‘webView.setWebChromeClient’才有响应");
+						this.showDialog();
+					},
+					clickPrompt(){
+						var temp = {
+						    name:"bingo",
+							age:18
+						};
+						var result = this.AndroidJsBridge.sendJson(temp);
+					    console.log("Android回传的值：" + result);
+					},
+					menuClicked(menuIndex) {
+						this.show = menuIndex;
+					 },
+					updateBadge(menuIndex) {
+					    $tabbar.$emit('updateTabbarBadge', menuIndex, this.menus[menuIndex].badge++)
+					},
+					//刷新组件
+					onRefresh() {
+					    setTimeout(() => {
+					        let start = this.top - 1
+					        for (let i = start; i > start - 10; i--) {
+					            this.items.splice(0, 0, i + ' - keep walking, be 2 with you.')
+					        }
+					        this.top = this.top - 10;
+					        setTimeout(() => {
+					            if (this.$refs.scroller)
+					              this.$refs.scroller.finishPullToRefresh()
+					        })
+					    }, 1500)
+					},
+					onInfinite() {
+					    setTimeout(() => {
+					        let start = this.bottom + 1
+					        for (let i = start; i < start + 10; i++) {
+					            this.items.push(i + ' - keep walking, be 2 with you.')
+					        }
+					    this.bottom = this.bottom + 10;
+					    setTimeout(() => {
+					        if (this.$refs.scroller)
+					            this.$refs.scroller.finishInfinite()
+					        })
+					    }, 1500)
+					}
+				  }
+			})
+		}       
+		
+	</script>
+</body>
+
+</html>

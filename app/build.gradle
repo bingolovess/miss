@@ -1,0 +1,134 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-aspectjx'
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    defaultConfig {
+        applicationId rootProject.ext.applicationId
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        testInstrumentationRunner rootProject.ext.testInstrumentationRunner
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+        multiDexEnabled true
+        flavorDimensions rootProject.ext.versionName
+    }
+    //签名
+//    signingConfigs {
+//        debugConfig {
+//            storeFile file("../frank_keystore")   //签名文件
+//            storePassword "your password"
+//            keyAlias "your alias"
+//            keyPassword "your password" //签名密码
+//        }
+//        release{
+//            storeFile file("../wooyun_keystore")   //签名文件
+//            storePassword "your password"
+//            keyAlias "your alias"
+//            keyPassword "your password" //签名密码
+//        }
+//    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug{
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+        }
+    }
+    /*多渠道打包配置*/
+    productFlavors{
+        huawei{
+            manifestPlaceholders = [APP_PACK_CHANNEL: "huawei"]
+        }
+        xiaomi{
+            manifestPlaceholders = [APP_PACK_CHANNEL: "xiaomi"]
+        }
+        meizu{
+            manifestPlaceholders = [APP_PACK_CHANNEL: "meizu"]
+        }
+        qh360{
+            manifestPlaceholders = [APP_PACK_CHANNEL: "qh360"]
+        }
+        baidu{
+            manifestPlaceholders = [APP_PACK_CHANNEL: "baidu"]
+        }
+    }
+    productFlavors.all{
+        flavor -> flavor.manifestPlaceholders = [APP_PACK_CHANNEL: name]
+    }
+    /*自定义打包名称 打包配置规则*/
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                // 输出apk名称为android_v1.0_wandoujia.apk
+                def fileName = "android_v${defaultConfig.versionName}_${variant.productFlavors[0].name}.apk"
+                outputFileName  = fileName
+            }
+        }
+    }
+    /*对应的打包命令 assemble是Gradle中的编译打包命令*/
+    //gradlew assembleWandoujiaRelease //打包wandoujia渠道的release版本
+    //gradlew assembleWandoujiaDebug   //打包wandoujia渠道的debug版本
+    //gradlew assembleWandoujia        //此命令会生成wandoujia渠道的Release和Debug版本
+    //gradlew assembleRelease          //打全部Release版本
+    /*依赖aar包*/
+//    repositories {
+//        flatDir {
+//            dirs 'libs'
+//        }
+//    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation rootProject.ext.dependencies.appcompat_x
+    implementation rootProject.ext.dependencies.constraintlayout_x
+    implementation "androidx.multidex:multidex:2.0.0"
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.jakewharton:butterknife:10.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+    implementation project(':base')
+    implementation project(':retrofit')
+    implementation project(':launch')
+    implementation project(':promise')
+    implementation project(':aop-arms')
+    implementation project(':track')
+    implementation project(':domob')
+    implementation project(':tooltips')
+    implementation project(':refresh')
+    implementation project(':progress')
+    implementation project(':paint')
+    implementation project(':dialog')
+    implementation project(':picker')
+    implementation project(':form')
+    implementation project(':emptystate')
+    implementation project(':notchlib')
+    implementation files('libs/nineoldandroids-2.4.0.jar')
+    implementation 'cn.bingoogolapple:bga-qrcode-zxing:1.3.7'
+    //图片加载框架
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+    //lottie
+    implementation 'com.airbnb.android:lottie:3.3.1'
+    //okhttp
+    implementation 'com.rxjava.rxhttp:rxhttp:1.3.4'
+    annotationProcessor 'com.rxjava.rxhttp:rxhttp-compiler:1.3.4'//注解处理器，生成RxHttp类，即可一条链发送请求
+    implementation 'com.rxjava.rxlife:rxlife:1.1.0'//管理RxJava及生命周期，Activity/Fragment 销毁，自动关闭未完成的请求
+    //日志库
+    implementation 'com.orhanobut:logger:2.2.0'
+}

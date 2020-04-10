@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--<com.miss.view.CommonHeader
+        android:id="@+id/common_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>-->
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:background="#d8d8d8d8">
+
+        <com.miss.view.TabView
+            android:id="@+id/tab_weixin"
+            app:tabImage="@mipmap/weixin_normal"
+            app:tabSelectedImage="@mipmap/weixin_pressed"
+            app:tabColor="#FF11E53F"
+            app:tabTitle="微信"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <com.miss.view.TabView
+            android:id="@+id/tab_contact"
+            app:tabImage="@mipmap/find_normal"
+            app:tabSelectedImage="@mipmap/find_pressed"
+            app:tabColor="#FF11E53F"
+            app:tabTitle="联系人"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+        <com.miss.view.TabView
+            android:id="@+id/tab_profile"
+            app:tabImage="@mipmap/profile_normal"
+            app:tabColor="#FF11E53F"
+            app:tabSelectedImage="@mipmap/profile_pressed"
+            app:tabTitle="我"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+</LinearLayout>

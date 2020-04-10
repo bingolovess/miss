@@ -1,0 +1,60 @@
+apply plugin: 'com.android.library'
+apply plugin: 'android-aspectjx'
+/**
+ * <p>https://github.com/aicareles/AopArms 参考原作者</p>
+ */
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation rootProject.ext.dependencies.appcompat_x
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.0"
+    implementation "io.reactivex.rxjava2:rxjava:2.2.5"
+}
+
+repositories {
+    jcenter()
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+//    tasks.withType(Javadoc) {
+//        options{ encoding "UTF-8"
+//            charSet 'UTF-8'
+//            links "http://docs.oracle.com/javase/7/docs/api"
+//        }
+//    }
+}
+
+/*publish{
+    repoName = 'maven'//远程仓库名字,不指明，默认是上传到maven
+    userOrg = 'superliu'//bintray.com的用户名
+    groupId = 'cn.com.superLei'//一个唯一值，默认包名,生成的gradle依赖前缀
+    artifactId = 'aop-arms'//远程仓库包名称
+    publishVersion = '1.0.4'
+    desc = 'A very convenient aop library for Android'
+    website = 'https://github.com/AICareless/AopArms'
+    licences = ['Apache-2.0']
+}*/
