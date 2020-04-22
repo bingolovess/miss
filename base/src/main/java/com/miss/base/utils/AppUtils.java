@@ -12,6 +12,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import java.io.BufferedReader;
@@ -21,6 +22,8 @@ import java.io.FileFilter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -444,5 +447,39 @@ public class AppUtils {
         //与正常页面跳转一样可传递序列化数据,在Launch页面内获得
         //intent.putExtra("REBOOT","reboot");
         context.startActivity(intent);
+    }
+
+    /**
+     * 获取application层级的meta data
+     *
+     * @param context 上下文
+     * @param key     key
+     * @return value
+     */
+    public static String getApplicationMetaData(Context context, String key) {
+        try {
+            Bundle metaData = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA).metaData;
+            return metaData.get(key).toString();
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 获得应用申明的所有权限列表
+     * @param context 上下文
+     * @return 获得应用申明的所有权限列表
+     */
+    public static List<String> getManifestPermissions(Context context){
+        List<String> permissions=new ArrayList<String>();
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), PackageManager.GET_PERMISSIONS);
+            permissions.addAll(Arrays.asList(packageInfo.requestedPermissions));
+
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return permissions;
     }
 }
